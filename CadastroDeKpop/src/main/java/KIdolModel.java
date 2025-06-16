@@ -1,9 +1,19 @@
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-
+@Entity
+@Table(name = "tb_cadastro")
 public class KIdolModel { //classe é um modelo pra um objeto
    
     //parei: preciso transformar classe em entidade, baixar dependencia
+    //para isso, JPA com @Entity
+    //Entity transforma classes em entidades do banco de dados
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id; //id cresce muito, melhor usar long
     String nome;
     String email;
