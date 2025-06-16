@@ -1,8 +1,10 @@
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+package dev.ca2sy.CadastroDeKpop.Kidol;
+
+import java.util.List;
+
+import dev.ca2sy.CadastroDeKpop.Show.ShowModel;
+import jakarta.persistence.*;
+
 
 @Entity
 @Table(name = "tb_cadastro")
@@ -14,10 +16,14 @@ public class KIdolModel { //classe é um modelo pra um objeto
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id; //id cresce muito, melhor usar long
-    String nome;
-    String email;
-    int idade;
+    private Long id; //id cresce muito, melhor usar long
+    private String nome;
+    private String email;
+    private int idade;
+    @ManyToOne 
+    @JoinColumn(name = "shows_id") //chave estrangeira
+     private ShowModel show;
+
     
     public KIdolModel(String nome, String email, int idade){
         this.nome = nome;
